@@ -3,7 +3,6 @@ use std::collections::HashMap;
 use std::env::VarError;
 use std::net::{AddrParseError, SocketAddr};
 use std::sync::Arc;
-use std::thread::sleep;
 use futures::executor::block_on;
 use futures::TryFutureExt;
 use nacos_sdk::api::constants;
@@ -161,6 +160,7 @@ fn parse_addr(addr: String) -> Result<String, EzError> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use std::thread::sleep;
     #[test]
     fn test_online(){
         let manager = ServiceManager::new(ServeOptions::default()).unwrap();
